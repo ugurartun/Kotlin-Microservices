@@ -4,5 +4,5 @@ import org.springframework.stereotype.Service
 
 @Service
 class ExampleService : ServiceInterface {
-    fun getHello(name : String) = "hello $name"
+    override fun getHello(name : String) = "hello $name"
 }
