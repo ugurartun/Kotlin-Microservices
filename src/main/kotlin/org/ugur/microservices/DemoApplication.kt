@@ -18,6 +18,8 @@ class FirstController(val exampleService: ExampleService) {
     fun hello(@PathVariable name :String) = exampleService.getHello(name)
 }
 
+
+
 fun main(args: Array<String>) {
     runApplication<DemoApplication>(*args)
 }
