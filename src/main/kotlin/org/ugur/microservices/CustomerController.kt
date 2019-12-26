@@ -36,7 +36,7 @@ class CustomerController {
     }
 
     @PutMapping(value = ["/customer/{id}"])
-    fun updateCustomer(@PathVariable id : Int, @RequestBody customer: Customer) : ResponseEntity<Unit> {
+    fun updateCustomer(@PathVariable id : Int, @RequestBody customer: Customer) : ResponseEntity<Unit?> {
         var status = HttpStatus.NOT_FOUND
         if(customerService.getCustomer(id) != null)  {
             customerService.updateCustomer(id, customer)
