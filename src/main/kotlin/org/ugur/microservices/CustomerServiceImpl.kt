@@ -1,7 +1,9 @@
 package org.ugur.microservices
 
+import org.springframework.stereotype.Service
 import java.util.concurrent.ConcurrentHashMap
 
+@Service
 class CustomerServiceImpl : CustomerService {
 
     companion object {
