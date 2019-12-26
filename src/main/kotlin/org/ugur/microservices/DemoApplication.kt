@@ -2,25 +2,21 @@ package org.ugur.microservices
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.context.annotation.Bean
+import java.util.concurrent.ConcurrentHashMap
 
 @SpringBootApplication
-class DemoApplication
+class DemoApplication  {
+    companion object {
+        val initialCustomers = arrayOf(Customer(1, "Kotlin"),
+                Customer(2, "Spring"),
+                Customer(3 , "Microservice"))
+    }
 
-@Controller
-class FirstController {
-    
-    @Autowired
-    lateinit var exampleService : ServiceInterface
-    
-    @GetMapping(value = ["/user/{name}"])
-    @ResponseBody
-    fun hello(@PathVariable name :String) = exampleService.getHello(name)
+    @Bean
+    fun customers() = ConcurrentHashMap<Int, Customer>(initialCustomers.associateBy (Customer::id))
+
 }
-
 
 
 fun main(args: Array<String>) {
