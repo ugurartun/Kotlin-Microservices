@@ -1,6 +1,8 @@
 package org.ugur.microservices
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.util.concurrent.ConcurrentHashMap
 
@@ -10,7 +12,12 @@ class CustomerController {
     lateinit var customers : ConcurrentHashMap<Int, Customer>
 
     @GetMapping(value = ["/customer/{id}"])
-    fun getCustomer(@PathVariable id : Int) = customers[id]
+    fun getCustomer(@PathVariable id : Int) : ResponseEntity<Customer?> {
+        val customer = customers[id]
+        val status = if(customer==null) HttpStatus.NOT_FOUND else HttpStatus.OK
+        return ResponseEntity(customer, status)
+
+    }
 
     @GetMapping(value = ["/customers"])
     fun getCustomers() = customers.map(Map.Entry<Int, Customer>::value).toList()
