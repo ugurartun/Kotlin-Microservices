@@ -1,6 +1,7 @@
-package org.ugur.microservices
+package com.ugur.microservices.service
 
 import org.springframework.stereotype.Service
+import org.ugur.microservices.Customer
 import java.util.concurrent.ConcurrentHashMap
 
 @Service
@@ -9,7 +10,7 @@ class CustomerServiceImpl : CustomerService {
     companion object {
         val initialCustomers = arrayOf(Customer(1, "Kotlin"),
                 Customer(2, "Spring"),
-                Customer(3 , "Microservice"))
+                Customer(3, "Microservice"))
     }
 
     val customers = ConcurrentHashMap<Int, Customer>(initialCustomers.associateBy (Customer::id))

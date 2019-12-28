@@ -1,4 +1,6 @@
-package org.ugur.microservices
+package com.ugur.microservices.service
+
+import org.ugur.microservices.Customer
 
 interface CustomerService {
 
