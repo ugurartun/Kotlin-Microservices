@@ -1,7 +1,6 @@
-package com.ugur.microservices.service
+package org.ugur.microservices
 
 import org.springframework.stereotype.Service
-import org.ugur.microservices.Customer
 import java.util.concurrent.ConcurrentHashMap
 
 @Service
