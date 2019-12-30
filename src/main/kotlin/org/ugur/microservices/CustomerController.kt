@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.*
 import org.ugur.microservices.exception.CustomerNotFoundException
 
 @RestController
-class CustomerController {
-
+class CustomerController {    
     @Autowired
     private lateinit var customerService: CustomerService
 
