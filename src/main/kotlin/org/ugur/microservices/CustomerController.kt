@@ -44,4 +44,11 @@ class CustomerController {
         }
         return ResponseEntity(Unit, status)
     }
+
+    @GetMapping(value = ["/customers"])
+    fun getCustomers(@PathVariable id : Int) : List<Customer> {
+        return customerService.getAllCustomers()
+
+    }
+
 }

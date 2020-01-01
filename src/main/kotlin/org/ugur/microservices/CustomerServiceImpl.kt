@@ -29,4 +29,9 @@ class CustomerServiceImpl : CustomerService {
         deleteCustomer(id)
         createCustomer(customer)
     }
+
+    override fun getAllCustomers() = customers.map(Map.Entry<Int, Customer>::value).toList()
+
+
+
 }
