@@ -11,7 +11,7 @@ class CustomerController {
     @Autowired
     private lateinit var customerService: CustomerService
 
-    @GetMapping(value = ["/customer/{id}"])
+    @GetMapping("/customer/{id}")
     fun getCustomer(@PathVariable id : Int) : ResponseEntity<Customer> {
         val customer = customerService.getCustomer(id) ?: throw CustomerNotFoundException("customer '$id' not found")
         return ResponseEntity(customer, HttpStatus.OK)
@@ -19,13 +19,13 @@ class CustomerController {
     }
 
 
-    @PostMapping(value = ["/customer"])
+    @PostMapping("/customer")
     fun createCustomer(@RequestBody customer: Customer) : ResponseEntity<Unit> {
         customerService.createCustomer(customer)
         return ResponseEntity(Unit, HttpStatus.CREATED)
     }
 
-    @DeleteMapping(value = ["/customer/{id}"])
+    @DeleteMapping("/customer/{id}")
     fun deleteCustomer(@PathVariable id : Int) : ResponseEntity<Unit> {
         var status = HttpStatus.NOT_FOUND
         if(customerService.getCustomer(id) != null)  {
@@ -35,7 +35,7 @@ class CustomerController {
         return ResponseEntity(Unit, status)
     }
 
-    @PutMapping(value = ["/customer/{id}"])
+    @PutMapping("/customer/{id}")
     fun updateCustomer(@PathVariable id : Int, @RequestBody customer: Customer) : ResponseEntity<Unit?> {
         var status = HttpStatus.NOT_FOUND
         if(customerService.getCustomer(id) != null)  {
@@ -45,7 +45,7 @@ class CustomerController {
         return ResponseEntity(Unit, status)
     }
 
-    @GetMapping(value = ["/customers"])
+    @GetMapping("/customers")
     fun getCustomers(@PathVariable id : Int) : List<Customer> {
         return customerService.getAllCustomers()
 
