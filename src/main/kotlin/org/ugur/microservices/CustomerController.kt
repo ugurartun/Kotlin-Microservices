@@ -18,7 +18,6 @@ class CustomerController {
 
     }
 
-
     @PostMapping("/customer")
     fun createCustomer(@RequestBody customer: Customer) : ResponseEntity<Unit> {
         customerService.createCustomer(customer)
@@ -48,7 +47,6 @@ class CustomerController {
     @GetMapping("/customers")
     fun getCustomers(@PathVariable id : Int) : List<Customer> {
         return customerService.getAllCustomers()
-
     }
 
 }
