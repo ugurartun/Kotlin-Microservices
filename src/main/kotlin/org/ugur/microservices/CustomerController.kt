@@ -15,7 +15,6 @@ class CustomerController {
     fun getCustomer(@PathVariable id : Int) : ResponseEntity<Customer> {
         val customer = customerService.getCustomer(id) ?: throw CustomerNotFoundException("customer '$id' not found")
         return ResponseEntity(customer, HttpStatus.OK)
-
     }
 
     @PostMapping("/customer")
