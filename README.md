@@ -1,3 +1,3 @@
 # Microservices with Kotlin
 
-Spring Boot and Kotlin
+Base Dockerized Spring Boot Project implemented with Kotlin
