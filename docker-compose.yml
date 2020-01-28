@@ -1,0 +1,21 @@
+version: "1"
+services:
+  employee-jdbc:
+    image: kotlin-boot
+    ports:
+      - "8080:8080"
+    networks:
+      - kotlin-mysql
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8
+    networks:
+      - kotlin-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bootdb
+
+networks:
+  kotlin-mysql:
