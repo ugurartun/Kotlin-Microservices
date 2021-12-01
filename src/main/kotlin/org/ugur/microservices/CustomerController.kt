@@ -18,13 +18,8 @@ class CustomerController {
         return ResponseEntity(customer, HttpStatus.OK)
     }
 
-<<<<<<< HEAD
-    @PostMapping("/customer"))
-    fun createCustomer(@RequestBody customer: Customer) : ResponseEntity<Unit> {
-=======
     @PostMapping("/customer")
     fun createCustomer(@RequestBody customer: Customer): ResponseEntity<Unit> {
->>>>>>> be29cb4932ede08dddc416c3d38dfa153784991e
         customerService.createCustomer(customer)
         return ResponseEntity(Unit, HttpStatus.CREATED)
     }
