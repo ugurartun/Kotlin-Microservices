@@ -11,7 +11,7 @@ services:
       - 3306:3306
     volumes:
       - /data/mysql
-  spring-boot-jpa-app:
+  spring-boot-kotlin:
     image: spring-boot-kotlin-image
     build:
       dockerfile: Dockerfile
@@ -24,3 +24,4 @@ services:
 
 networks:
   kotlin-mysql:
+

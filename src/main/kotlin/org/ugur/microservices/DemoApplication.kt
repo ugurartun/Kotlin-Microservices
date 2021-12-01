@@ -4,10 +4,11 @@ import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
+import org.ugur.microservices.model.Customer
 import org.ugur.microservices.repository.CustomerRepository
 
 @SpringBootApplication
-class DemoApplication  {
+class DemoApplication {
 
 }
 

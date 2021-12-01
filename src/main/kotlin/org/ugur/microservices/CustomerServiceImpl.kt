@@ -1,6 +1,7 @@
 package org.ugur.microservices
 
 import org.springframework.stereotype.Service
+import org.ugur.microservices.model.Customer
 import java.util.concurrent.ConcurrentHashMap
 
 @Service
@@ -12,7 +13,7 @@ class CustomerServiceImpl : CustomerService {
                 Customer(3, "Microservice"))
     }
 
-    val customers = ConcurrentHashMap<Int, Customer>(initialCustomers.associateBy (Customer::id))
+    val customers = ConcurrentHashMap<Int, Customer>(initialCustomers.associateBy(Customer::id))
 
 
     override fun getCustomer(id: Int) = customers[id]
@@ -31,7 +32,6 @@ class CustomerServiceImpl : CustomerService {
     }
 
     override fun getAllCustomers() = customers.map(Map.Entry<Int, Customer>::value).toList()
-
 
 
 }
