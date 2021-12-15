@@ -17,7 +17,7 @@ class ErrorHandler {
     }
 
     @ExceptionHandler(CustomerNotFoundException::class)
-    fun jsonCustomerNotFoundExceptionnHandler(servletRequest: HttpServletRequest, exception: Exception): ResponseEntity<ErrorResponse> {
+    fun customerNotFoundExceptionnHandler(servletRequest: HttpServletRequest, exception: Exception): ResponseEntity<ErrorResponse> {
         return ResponseEntity(ErrorResponse("Customer Not found", exception.message ?: "invalid json"), HttpStatus.NOT_FOUND)
     }
 
