@@ -1,4 +1,4 @@
-package org.ugur.microservices
+package org.ugur.microservices.service
 
 import org.ugur.microservices.model.Customer
 
