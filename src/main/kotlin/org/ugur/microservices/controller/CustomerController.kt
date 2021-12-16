@@ -8,7 +8,8 @@ import org.ugur.microservices.service.CustomerService
 import org.ugur.microservices.exception.CustomerNotFoundException
 import org.ugur.microservices.model.Customer
 
-@RestController("/customers")
+@RestController
+@RequestMapping("/customers")
 class CustomerController {
     @Autowired
     private lateinit var customerService: CustomerService
